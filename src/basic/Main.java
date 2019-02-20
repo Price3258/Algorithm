@@ -27,6 +27,19 @@ public class Main {
         System.out.println(map.get("test"));
 
 
+        String s = "abcb";
+
+        System.out.println( s.substring( s.length()/2 ));
+
+        StringBuffer reverseStr = new StringBuffer();
+
+        for( int i = 0 ; i< s.length()/2 ; i++ ){
+            reverseStr.append( s.substring(s.length()-i ) );
+        }
+
+
+        System.out.println(s.length()/2);
+
 
 
     }
