@@ -41,6 +41,11 @@ public class Main {
         System.out.println(s.length()/2);
 
 
+        for( int i = s.length() ; i > 0; i--){
+            System.out.println(i);
+        }
+
+
 
     }
 }

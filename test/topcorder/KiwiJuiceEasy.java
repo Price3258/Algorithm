@@ -4,6 +4,9 @@ import org.hamcrest.core.Is;
 import org.junit.Assert;
 import org.junit.Test;
 
+
+// 배열 접근 시간을 변수 선언해서 줄이자 .
+//
 public class KiwiJuiceEasy {
 
     @Test

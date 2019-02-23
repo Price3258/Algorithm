@@ -25,7 +25,7 @@ public class Cryptography {
 
     }
 
-    private int solution( int[] A){
+    private long solution( int[] A){
 
         int max = 1;
         int cur = 1;

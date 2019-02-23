@@ -6,6 +6,9 @@ import org.junit.Test;
 
 import java.util.*;
 
+// 포문 한 번에 다 넣기 .
+// 키셋이나 이터레이터 사용하기 .
+
 public class InterestingParty {
 
     @Test
@@ -62,7 +65,7 @@ public class InterestingParty {
         }
 
 
-        return ( Collections.max( map.values() )) ;
+        return Collections.max( map.values() ) ;
     }
 }
 
