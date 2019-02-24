@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class InterestingDigits {
 
@@ -16,6 +17,8 @@ public class InterestingDigits {
         Assert.assertThat( solution(10), Is.is( new int[]{3,9} ));
 
         Assert.assertThat( solution(3), Is.is( new int[]{2} ));
+
+        Assert.assertThat( solution(7), Is.is( new int[]{ 2,3,6} ));
 
         Assert.assertThat( solution(9), Is.is( new int[]{ 2, 4, 8 } ));
 
@@ -33,18 +36,19 @@ public class InterestingDigits {
 
         for ( int i = 2 ; i < base ; i++){
 
-            if((base-1)%i == 0)
+            if( (base-1) % i == 0)
                 arr.add(i);
         }
 
-        int[] answer = new int[arr.size()];
+//        int[] answer = new int[arr.size()];
+//
+//        for( int i = 0 ; i < arr.size(); i++){
+//            answer[i] = arr.get(i);
+//        }
+        return arr.stream().mapToInt(i -> i.intValue()).toArray();
 
-        for( int i = 0 ; i < arr.size(); i++){
-            answer[i] = arr.get(i);
-        }
 
 
-
-        return answer;
+        //return answer;
     }
 }

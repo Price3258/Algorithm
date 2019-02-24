@@ -64,6 +64,7 @@ public class ThePalindrome {
                      }
                      cur = reverseStr.length()*2;
 
+
                  }else {
 
                  }
@@ -77,6 +78,27 @@ public class ThePalindrome {
         }
 
         return min;
+    }
+    //
+    private int find(String s){
+
+
+        for( int i = s.length() ; ; i++){ // 문자열의 길이를 늘려줌.
+
+            boolean flag = true;
+
+            for(int j = 0; j< s.length(); j++){
+                // 반대쪽에 문자와 다르면 플래그를 변경.
+                if( ( i -j -1) <s.length() && s.charAt(j) != s.charAt(i -j -1)){
+
+                    flag = false;
+                    break;
+
+                }
+            }
+            if( flag)
+                return i;
+        }
     }
 
 }
