@@ -105,21 +105,24 @@ public class Crazybot {
                 stack.push(ways[i]);
             }
 
-            answer += dfs(n , stack);
+            answer += dfs(n , stack, probabilities);
+
+            stack.pop();
+
         }
 
 
         return answer ;
     }
 
-    private double dfs (int n, Stack<String> stack ){
+    private double dfs (int n, Stack<String> stack, double[] probabilities ){
 
-        double percent = 100;
+        double percent = 0;
 
         int length = ways.length;
 
 
-        if( n==0){
+        if( n==0 ){
             return percent;
         }
 
@@ -128,7 +131,7 @@ public class Crazybot {
 
 
 
-        return dfs (n-1, stack );
+        return dfs (n-1, stack, probabilities );
     }
 
 
