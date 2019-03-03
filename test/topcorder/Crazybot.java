@@ -54,11 +54,11 @@ public class Crazybot {
     public void test(){
 
 
-        Assert.assertThat( getProbability(1,25,25,25,25), Is.is(1) );
+        Assert.assertThat( getProbability(1,25,25,25,25), Is.is(1.0) );
 
         Assert.assertThat( getProbability(2,25,25,25,25), Is.is(0.75) );
 
-        Assert.assertThat( getProbability(7,50,0,0,50), Is.is(1) );
+        Assert.assertThat( getProbability(7,50,0,0,50), Is.is(1.0) );
 
         Assert.assertThat( getProbability(14,50,50,0,0), Is.is(1.220703125E-4) );
 
@@ -70,11 +70,10 @@ public class Crazybot {
     //private static double p = 1; //  전체 확률 1
 
     private double[] probabilities = new double[4]; //동서남북의 퍼센트
-    private double answer = 0; // answer 는 중복 방문 확률
-    private int[][] checked = new int[100][100];
 
-
-    private String[] ways = new String[]{"E","W","S","N"};
+    private boolean[][] checked = new boolean[100][100];
+    private int[] vx = {1, -1, 0, 0};
+    private int[] vy = {0, 0, 1, -1};
 
 
 
@@ -85,54 +84,74 @@ public class Crazybot {
         probabilities[2]= south/100.0;
         probabilities[3]= north/100.0;
 
-        Stack<String> stack = new Stack<>();
-
-      //  int next = 0;
-        if( n==1){
-            return 1;
-
-        }
-
+//        Stack<String> stack = new Stack<>();
 //
-//        for (int i = 0; i < 4; i++) {
-//                answer += dfs(n , probabilities);
+//      //  int next = 0;
+//        if( n==1){
+//            return 1;
+//
+//        }
+//
+////
+////        for (int i = 0; i < 4; i++) {
+////                answer += dfs(n , probabilities);
+////        }
+//
+//        int length = ways.length;
+//
+//        for( int i =0 ; i < length; i++ ){
+//            if( probabilities[i] != 0) {
+//                stack.push(ways[i]);
+//            }
+//
+//            answer += dfs(n , stack, probabilities);
+//
+//            stack.pop();
+//
 //        }
 
-        int length = ways.length;
 
-        for( int i =0 ; i < length; i++ ){
-            if( probabilities[i] != 0) {
-                stack.push(ways[i]);
-            }
-
-            answer += dfs(n , stack, probabilities);
-
-            stack.pop();
-
-        }
-
-
-        return answer ;
+        return dfs(50,50,n);
     }
 
-    private double dfs (int n, Stack<String> stack, double[] probabilities ){
+//    private double dfs (int n, Stack<String> stack, double[] probabilities ){
+//
+//        double percent = 0;
+//
+//        int length = ways.length;
+//
+//
+//        if( n==0 ){
+//            return percent;
+//        }
+//
+//
+//        return dfs (n-1, stack, probabilities );
+//    }
 
-        double percent = 0;
 
-        int length = ways.length;
+    private double dfs( int x , int y , int n){
 
-
-        if( n==0 ){
-            return percent;
+        if( checked[x][y] ){
+            return 0;
+        }
+        if( n==0){
+            return 1;
         }
 
+        checked[x][y]=true;
+        double ret = 0;
+        for( int i=0 ; i<4 ; i++){
 
 
+            ret += dfs(x+vx[i],y+vy[i],n-1)*probabilities[i];
+        }
+
+        checked[x][y] = false;
+
+        return ret;
 
 
-
-        return dfs (n-1, stack, probabilities );
     }
-
 
 }
