@@ -26,7 +26,7 @@ public class NumberMagicEasy {
 
 
 
-    public int theNumber(String answer){
+    private int theNumber(String answer){
 
 
 //        int[] Card1 = new int[]{1,2,3,4,5,6,7,8};
@@ -51,7 +51,7 @@ public class NumberMagicEasy {
             for( int j = 0 ; j < 4 ; j++){
                 temp.append(Cards[j].charAt(i));
             }
-            if( answer.equals(temp.toString()) ){
+            if( answer.equals( temp.toString() ) ){
                 return i+1;
             }
         }
