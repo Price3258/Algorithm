@@ -1,5 +1,6 @@
 package topcorder;
 
+import com.sun.istack.internal.NotNull;
 import org.hamcrest.core.Is;
 import org.junit.Assert;
 import org.junit.Test;
@@ -43,6 +44,7 @@ public class MazeMaker {
 
     }
 
+    @NotNull
     private int logestPath(String[] maze, int startRow, int startCol, int[] moveRow, int[] moveCol){
 
 
@@ -69,7 +71,6 @@ public class MazeMaker {
 
         queueX.add(startCol);
         queueY.add(startRow);
-
 
         while (!queueX.isEmpty()){
             int x = queueX.poll();
