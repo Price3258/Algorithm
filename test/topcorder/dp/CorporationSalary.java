@@ -56,7 +56,7 @@ public class CorporationSalary {
             int length = relations.length;
 
             for (int j = 0; j < length; j++) {
-                if (relations[i].toString().charAt(j) == 'Y') {
+                if (relations[i].charAt(j) == 'Y') {
 
                     salary += dp(j, relations);
                 }
