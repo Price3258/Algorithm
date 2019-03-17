@@ -65,7 +65,7 @@ public class ChessMetric {
     private long howMany(int size, int[] start, int[] end, int numMoves) {
 
 
-        int[][][] ways = new int[100][100][50];
+        int[][][] ways = new int[size][size][50];
 
         int[] vx = {1, -1, 0, 0, -1, -1, 1, 1, 2, 2, -2, -2, 1, 1, -1, -1}; //
         int[] vy = {0, 0, 1, -1, -1, 1, 1, -1, 1, -1, 1, -1, 2, -2, -2, 2}; //
@@ -95,7 +95,7 @@ public class ChessMetric {
 
                 for (int k = 0; k < size; k++) { /// move Y
 
-                    for(int l=0 ; l < 16 ; l++){
+                    for(int l=0 ; l < length ; l++){ //
 
                         int nx = j+ vx[l];
                         int ny = k+ vy[l];
