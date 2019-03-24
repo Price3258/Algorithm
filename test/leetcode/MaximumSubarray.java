@@ -1,4 +1,4 @@
-package reetcode;
+package leetcode;
 
 import org.hamcrest.core.Is;
 import org.junit.Assert;
