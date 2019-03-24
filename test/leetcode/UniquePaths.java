@@ -29,35 +29,33 @@ public class UniquePaths {
 
     }
 
-    int[] vy = new int[]{0,1};
-    int[] vx = new int[]{1,0};
 
     //right, down
 
     public int uniquePaths(int m, int n) {
+        if (m == 0 || n == 0) return 0;
+        if (m == 1 || n == 1) return 1;
 
-        int count = 0;
+        int[][] dp = new int[m][n];
 
-        boolean[][] ways = new boolean[n][m];
+        //left column
+        for (int i = 0; i < m; i++) {
+            dp[i][0] = 1;
+        }
 
+        //top row
+        for (int j = 0; j < n; j++) {
+            dp[0][j] = 1;
+        }
 
-
-
-        for(int i = 0 ; i < n ; i++){
-            for(int j =0 ; j < m ; j++){
-                if( ways[i][j]){
-                    ways[i][j] = true;
-
-                }
+        //fill up the dp table
+        for (int i = 1; i < m; i++) {
+            for (int j = 1; j < n; j++) {
+                dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
             }
         }
-        return count;
-    }
-    public int dfs(int x, int y, int n){
 
-
-
-        return count;
+        return dp[m - 1][n - 1];
     }
 
 }
