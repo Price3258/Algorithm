@@ -1,4 +1,4 @@
-package math.kakao;
+package kakao;
 
 import org.hamcrest.core.Is;
 import org.junit.Assert;

@@ -26,6 +26,9 @@ public class UniquePaths {
         Assert.assertThat(uniquePaths(3,2), Is.is(3));
 
         Assert.assertThat(uniquePaths(7,3), Is.is(28));
+        Assert.assertThat(uniquePaths(4,4), Is.is(20));
+        Assert.assertThat(uniquePaths(6,6), Is.is(252));
+
 
     }
 
@@ -57,5 +60,26 @@ public class UniquePaths {
 
         return dp[m - 1][n - 1];
     }
+
+    // 조합을 사용해 한번 풀어보자.
+    // m+n-2 C n-1 or n+m-2 C m-1
+    public int uniquePaths2(int m, int n) {
+
+        int min ;
+
+        if( m > n){
+            min = n;
+        }else{
+            min = m;
+        }
+
+
+
+
+
+        return 0;
+
+    }
+
 
 }
