@@ -10,7 +10,7 @@ public class DSU {
         rank = new int[size];
     }
 
-    private int find(int x) {
+    public int find(int x) {
         if (parent[x] != x) parent[x] = find(parent[x]);
         return parent[x];
     }
