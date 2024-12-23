@@ -4,6 +4,7 @@ function HashTable() {
     this.showDistro = showDistro;
     this.batterHash = batterHash;
     this.put = put;
+    this.get = get;
 }
 
 function simpleHash(data) {
@@ -32,8 +33,8 @@ function batterHash(string) {
 }
 
 
-function put(data) {
-    var pos = this.batterHash(data);
+function put(key, data) {
+    var pos = this.batterHash(key);
     this.table[pos] = data;
 }
 
@@ -45,13 +46,18 @@ function showDistro() {
     }
 }
 
+function get(key){
+    return this.table[this.batterHash(key)];
+}
+
 
 var someNames = ["David", "Jenn", "John", "Donnie", "Raymond", "Mike", "Clayton"]
 
 var hTable = new HashTable();
 
 for(var i = 0 ; i < someNames.length ; ++i) {
-    hTable.put(someNames[i]);
+    hTable.put(someNames[i], someNames[i]);
 }
 
 hTable.showDistro();
+console.log(hTable.get("David"));
