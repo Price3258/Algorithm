@@ -103,6 +103,50 @@ class BST {
         }
         return current;
     }
+
+    getSmallestNode(node){  // 가장 작은 노드 찾기
+        if(node.left === null){
+            return node;
+        } else {
+            return this.getSmallestNode(node.left);
+        }
+    }
+
+    remove(data){
+        this.root = this.removeNode(this.root, data);
+    }
+
+    removeNode(node, data){
+        if(node === null){
+            return null;
+        }
+        if(data === node.data){
+            // **Case 1: 리프 노드**
+        if (node.left === null && node.right === null) {
+            return null; // 현재 노드 제거
+        }
+
+        // **Case 2: 하나의 자식만 있는 경우**
+        if (node.left === null) {
+            return node.right; // 오른쪽 자식 반환
+        }
+        if (node.right === null) {
+            return node.left; // 왼쪽 자식 반환
+        }
+        // **Case 3: 두 개의 자식이 있는 경우**
+        // 오른쪽 서브트리에서 가장 작은 값을 가져옴
+        let tempNode = this.getSmallestNode(node.right);
+        node.data = tempNode.data;
+        node.right = this.removeNode(node.right, tempNode.data);
+        return node;
+        } else if(data < node.data){
+            node.left = this.removeNode(node.left, data);
+            return node;
+        } else {
+            node.right = this.removeNode(node.right, data);
+            return node;
+        }
+    }
 }
 
 module.exports = BST;

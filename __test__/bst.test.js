@@ -40,4 +40,7 @@ it("bst test", () => {
 
     expect(bst.find(23).left.data).toBe(16);
 
+    bst.remove(16);
+    expect(bst.preOrder(bst.root)).toStrictEqual([23, 22, 3, 45, 37, 99]);
+
 })
