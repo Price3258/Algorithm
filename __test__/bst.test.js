@@ -2,7 +2,7 @@ const BST = require("../src/lib/BST");
 
 it("bst test", () => {
     const bst = new BST();
-    
+
     bst.insert(23);
     bst.insert(45);
     bst.insert(16);
@@ -11,6 +11,16 @@ it("bst test", () => {
     bst.insert(99);
     bst.insert(22);
     console.log("inOrder traversal: ");
-    bst.inOrder(bst.root);
+    const inOrder = bst.inOrder(bst.root);
+    console.log(inOrder)
     expect(bst.root.data).toBe(23);
+
+    console.log("preOrder traversal: ");
+    const preOrder = bst.preOrder(bst.root);
+    console.log(preOrder)
+
+    console.log("postOrder traversal: ");
+    const postOrder = bst.postOrder(bst.root);
+    console.log(postOrder)
+
 })

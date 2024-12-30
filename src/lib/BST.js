@@ -41,12 +41,35 @@ class BST {
         }
     }
 
-    inOrder(node) {
+    inOrder(node, result = []) {
         if (node !== null) {
-            this.inOrder(node.left);
-            console.log(node.show());
-            this.inOrder(node.right);
+            this.inOrder(node.left, result);
+            result.push(node.show());
+            this.inOrder(node.right, result);
         }
+        return result;
+    }
+    
+    preOrder(node, result = []) {
+        if (node !== null) {
+            result.push(node.show());
+            this.preOrder(node.left, result);
+            this.preOrder(node.right, result);
+        }
+        return result;
+    }
+    
+    postOrder(node, result = []) {
+        if (node !== null) {
+            this.postOrder(node.left, result);
+            this.postOrder(node.right, result);
+            result.push(node.show());
+        }
+        return result;
+    }
+
+    printTraversal(order) {
+        console.log(order.join(' '));
     }
 }
 
