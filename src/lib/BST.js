@@ -71,6 +71,22 @@ class BST {
     printTraversal(order) {
         console.log(order.join(' '));
     }
+
+    getMin() {
+        let current = this.root;
+        while (current.left !== null) {
+            current = current.left;
+        }
+        return current.data;
+    }
+    
+    getMax() {
+        let current = this.root;
+        while (current.right !== null) {
+            current = current.right;
+        }
+        return current.data;
+    }
 }
 
 module.exports = BST;
