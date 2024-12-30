@@ -40,5 +40,14 @@ class BST {
            }
         }
     }
+
+    inOrder(node) {
+        if (node !== null) {
+            this.inOrder(node.left);
+            console.log(node.show());
+            this.inOrder(node.right);
+        }
+    }
 }
 
+module.exports = BST;
