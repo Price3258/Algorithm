@@ -10,6 +10,18 @@ it("bst test", () => {
     bst.insert(3);
     bst.insert(99);
     bst.insert(22);
+
+    /*
+          23
+         /  \
+        16   45
+        /  \   \
+        3   22  37
+                  \
+                  99 
+    */
+
+
     expect(bst.root.data).toBe(23);
     const inOrder = bst.inOrder(bst.root);
     const preOrder = bst.preOrder(bst.root);
@@ -25,5 +37,7 @@ it("bst test", () => {
 
     expect(bst.getMax()).toBe(99);
     expect(bst.getMin()).toBe(3);
+
+    expect(bst.find(23).left.data).toBe(16);
 
 })
