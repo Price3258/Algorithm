@@ -12,15 +12,12 @@ it("bst test", () => {
     bst.insert(22);
     console.log("inOrder traversal: ");
     const inOrder = bst.inOrder(bst.root);
-    console.log(inOrder)
     expect(bst.root.data).toBe(23);
-
-    console.log("preOrder traversal: ");
     const preOrder = bst.preOrder(bst.root);
-    console.log(preOrder)
-
-    console.log("postOrder traversal: ");
     const postOrder = bst.postOrder(bst.root);
-    console.log(postOrder)
+
+    bst.printTraversal(inOrder);
+    bst.printTraversal(preOrder);
+    bst.printTraversal(postOrder);
 
 })
