@@ -20,4 +20,7 @@ it("bst test", () => {
     bst.printTraversal(preOrder);
     bst.printTraversal(postOrder);
 
+    expect(inOrder).toStrictEqual([3, 16, 22, 23, 37, 45, 99]);
+    expect(preOrder).toStrictEqual([23, 16, 3, 22, 45, 37, 99]);
+    expect(postOrder).toStrictEqual([3, 22, 16, 37, 99, 45, 23]);
 })
