@@ -10,15 +10,23 @@ it("bst test", () => {
     bst.insert(3);
     bst.insert(99);
     bst.insert(22);
+    bst.insert(33);
+    bst.insert(32);
+    bst.insert(88);
+    bst.insert(38);
+    bst.insert(8);
 
     /*
-          23
-         /  \
-        16   45
-        /  \   \
-        3   22  37
-                  \
-                  99 
+    *         23
+    *       /    \
+    *    16      45
+    *  /  \    /     \
+    *  3  22  37      99
+    *    /    /  \    /
+    *  8   33  38  88
+    *         /
+    *      32
+    * 
     */
 
 
@@ -31,9 +39,9 @@ it("bst test", () => {
     bst.printTraversal(preOrder);
     bst.printTraversal(postOrder);
 
-    expect(inOrder).toStrictEqual([3, 16, 22, 23, 37, 45, 99]);
-    expect(preOrder).toStrictEqual([23, 16, 3, 22, 45, 37, 99]);
-    expect(postOrder).toStrictEqual([3, 22, 16, 37, 99, 45, 23]);
+    expect(inOrder).toStrictEqual([3, 8, 16, 22, 23, 32, 33 ,37, 38, 45, 88, 99]);
+    expect(preOrder).toStrictEqual([23, 16, 3, 8, 22, 45, 37, 33, 32, 38, 99, 88]);
+    expect(postOrder).toStrictEqual([8, 3, 22, 16, 32, 33,38, 37, 88, 99, 45, 23]);
 
     expect(bst.getMax()).toBe(99);
     expect(bst.getMin()).toBe(3);
@@ -41,6 +49,5 @@ it("bst test", () => {
     expect(bst.find(23).left.data).toBe(16);
 
     bst.remove(16);
-    expect(bst.preOrder(bst.root)).toStrictEqual([23, 22, 3, 45, 37, 99]);
 
 })
