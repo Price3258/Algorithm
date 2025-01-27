@@ -25,4 +25,5 @@ function solution(arr) {
 
 console.log("정답 = d 현재 풀이 값 =", solution("abadabac"));
 console.log("정답 = c 현재 풀이 값 =", solution("aabbcddd"));
+console.log("정답 = a 현재 풀이 값 =", solution("adddddd"));
 console.log("정답 =_ 현재 풀이 값 =", solution("aaaaaaaa"));
